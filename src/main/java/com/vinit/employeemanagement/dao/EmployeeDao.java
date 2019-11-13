@@ -7,6 +7,4 @@ import com.vinit.employeemanagement.model.Employee;
 
 @RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
 public interface EmployeeDao extends JpaRepository<Employee, Long> {
-	
-
 }

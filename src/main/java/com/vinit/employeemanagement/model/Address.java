@@ -1,6 +1,8 @@
 package com.vinit.employeemanagement.model;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -8,9 +10,16 @@ import lombok.Data;
 @Embeddable
 public class Address {
 
-	private String area;
-	private Integer pincode;
-	private String city;
-	private String state;
+    @NotBlank
+    private String area;
+
+    @NotNull
+    private Integer pincode;
+
+    @NotBlank
+    private String city;
+
+    @NotBlank
+    private String state;
 
 }
