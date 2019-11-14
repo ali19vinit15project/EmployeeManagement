@@ -5,8 +5,8 @@ Employee Management module
 # **How to run?**
 
 1. Download and extract the project.
-2. In the project folder, open cmd/gitbash.
-3. Run ```java -jar EmployeeManagement-0.0.1-SNAPSHOT.jar```
+2. Run the following command in the root folder
+```java -jar EmployeeManagement-0.0.1-SNAPSHOT.jar```
 
 
 
