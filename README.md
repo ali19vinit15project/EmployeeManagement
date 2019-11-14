@@ -6,6 +6,7 @@ Employee Management module
 
 1. Download and extract the project.
 2. Run the following command in the root folder
+
 ```java -jar EmployeeManagement-0.0.1-SNAPSHOT.jar```
 
 
