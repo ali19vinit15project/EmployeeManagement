@@ -2,24 +2,24 @@
 Employee Management module
 
 
-How to run?
+# **How to run?**
 
 1. Download and extract the project.
 2. In the project folder, open cmd/gitbash.
-3. Run *java -jar EmployeeManagement-0.0.1-SNAPSHOT.jar*
+3. Run ```java -jar EmployeeManagement-0.0.1-SNAPSHOT.jar```
 
 
 
-API
+# **API Docs**
 
 1. GET all employees
 
-http://localhost:8080/api/employees
+```http://localhost:8080/api/employees```
 
 
 2. POST all employees
 
-http://localhost:8080/api/employees
+```http://localhost:8080/api/employees```
 
 {
     "firstName": "John",
