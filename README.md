@@ -44,3 +44,8 @@ Employee Management module
         "state": "Maharashtra"
     }
 }
+
+
+# **How to Test**
+
+```http://localhost:8080/api/```
