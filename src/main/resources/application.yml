@@ -26,4 +26,10 @@ server:
   port: 8090
   servlet:
     context-path: /api
+# Cors configuration
+corsConfig:
+  base-pattern: /**
+  allowed-origins: http://localhost:8080
+  allowed-methods: "*"
+  allowed-headers: "*"
   
