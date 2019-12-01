@@ -65,7 +65,7 @@ public class Employee {
 
     @Lob
     // @NotNull
-    private Blob photo;
+    private byte[] photo;
 
     @Embedded
     @Valid
