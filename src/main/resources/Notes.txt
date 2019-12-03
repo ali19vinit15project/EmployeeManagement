@@ -1,0 +1,14 @@
+https://stackoverflow.com/questions/59017795/how-to-integrate-a-file-upload-into-spring-data-rest-repositories
+
+I would like to do this using Spring Data REST. 
+My approach was to include a MultipartFile in the DataFile entity and mark it @Transient and @RestResource(exported = false)
+ so it is not in any representation of the entity but can be uploaded. 
+ When uploaded an AbstractRepositoryEventListener overrides onBeforeCreate and uploads the file during this step
+ 
+ 
+ 
+ https://stackoverflow.com/questions/29332734/how-to-evolve-a-spring-data-rest-application/29342403#29342403
+ Using EventListeners
+If all you want to do is intercept the CRUD operations backing the exposed resources you can implement a AbstractRepositoryEventListener. 
+It allows you to synchronously intercept the actions the Spring Data REST controllers impose on the entities. 
+Use cases to be mentioned here can be additional validation, logging, filtering etc.
