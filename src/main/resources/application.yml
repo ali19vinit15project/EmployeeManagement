@@ -33,3 +33,4 @@ corsConfig:
   allowed-methods: "*"
   allowed-headers: "*"
   
+file-location: upload-dir

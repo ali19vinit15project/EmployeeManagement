@@ -1,6 +1,5 @@
 package com.vinit.employeemanagement.model;
 
-import java.sql.Blob;
 import java.time.LocalDate;
 
 import javax.persistence.Embedded;
@@ -9,12 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -66,6 +68,9 @@ public class Employee {
     @Lob
     // @NotNull
     private String photo;
+
+    @Transient
+    private MultipartFile file;
 
     @Embedded
     @Valid

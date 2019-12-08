@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.vinit.employeemanagement.dao.EmployeeDao;
 import com.vinit.employeemanagement.model.Employee;
+import com.vinit.employeemanagement.service.FileService;
 
 @RepositoryRestController
 @RequestMapping("/employees")
@@ -18,6 +19,7 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeDao employeeDao;
+   
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<PersistentEntityResource> saveEmployee(@RequestBody Employee employee, PersistentEntityResourceAssembler persistentEntityResourceAssembler) {
