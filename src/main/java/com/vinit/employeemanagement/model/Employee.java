@@ -1,8 +1,8 @@
 package com.vinit.employeemanagement.model;
 
-import java.sql.Blob;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
@@ -20,8 +21,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class Employee {
 
     @Id
@@ -49,6 +50,7 @@ public class Employee {
     private String martialStatus;
 
     @NotNull
+    @Column(unique = true)
     @Pattern(regexp = "(^$|[0-9]{10})")
     private String phoneNum;
 
@@ -57,6 +59,7 @@ public class Employee {
     private String emrgncyPhoneNum;
 
     @NotNull
+    @Column(unique = true)
     @Pattern(regexp = "(^$|[0-9]{12})")
     private String aadhar;
 
@@ -64,17 +67,19 @@ public class Employee {
     private String qualification;
 
     @Lob
-    // @NotNull
+    @NotNull
     private String photo;
 
-    @Embedded
     @Valid
+    @Embedded
     private Address address;
 
     @Email
+    @Column(unique = true)
     private String email;
 
-    @Pattern(regexp = "^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$")
+    @Column(unique = true)
+    @Pattern(regexp = "^$|^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$")
     private String pan;
 
     private String bloodGroup;
