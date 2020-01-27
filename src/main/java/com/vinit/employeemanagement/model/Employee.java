@@ -18,10 +18,12 @@ import javax.validation.constraints.Pattern;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-public class Employee {
+@EqualsAndHashCode(callSuper = true)
+public class Employee extends Audit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
