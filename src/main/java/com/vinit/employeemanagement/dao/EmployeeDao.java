@@ -1,34 +1,24 @@
 package com.vinit.employeemanagement.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.querydsl.QuerydslPredicateExecutor;
-import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
-import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.querydsl.core.types.dsl.StringPath;
 import com.vinit.employeemanagement.model.Employee;
-import com.vinit.employeemanagement.model.QEmployee;
 
 @RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
-public interface EmployeeDao extends JpaRepository<Employee, Long>, QuerydslPredicateExecutor<Employee>,
-	QuerydslBinderCustomizer<QEmployee> {
+public interface EmployeeDao extends JpaRepository<Employee, Long> {
 
-    @Override
-    default public void customize(QuerydslBindings bindings, QEmployee emp) {
+    public static final String SEARCH_QUERY = "SELECT e FROM Employee e "//
+	    + "WHERE "//
+	    + "lower(e.firstName) LIKE lower(concat('%', :q,'%')) OR "
+	    + "lower(e.lastName) LIKE lower(concat('%', :q,'%')) OR "
+	    + "lower(e.address.city) LIKE lower(concat('%', :q,'%'))";
 
-	// specific properties
-	// bindings.bind(emp.firstName).first((path, value) ->
-	// path.equalsIgnoreCase(value));
-	// bindings.bind(emp.lastName).first((path, value) ->
-	// path.equalsIgnoreCase(value));
+    @Query(SEARCH_QUERY)
+    List<Employee> searchBy(@Param("q") String q);
 
-	// OR
-	// All properties
-	bindings.bind(String.class).first((StringPath path, String value) -> path.containsIgnoreCase(value));
-
-	// excluding
-	// bindings.excluding(emp.aadhar);
-
-    }
 }
