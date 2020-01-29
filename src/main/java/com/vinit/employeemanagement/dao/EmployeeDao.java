@@ -1,7 +1,7 @@
 package com.vinit.employeemanagement.dao;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -19,6 +19,6 @@ public interface EmployeeDao extends JpaRepository<Employee, Long> {
 	    + "lower(e.address.city) LIKE lower(concat('%', :q,'%'))";
 
     @Query(SEARCH_QUERY)
-    List<Employee> searchBy(@Param("q") String q);
+    Page<Employee> searchBy(@Param("q") String q,Pageable pageable);
 
 }
