@@ -24,14 +24,14 @@ public interface EmployeeDao extends JpaRepository<Employee, Long> {
     Page<Employee> searchBy(@Param("q") String q, Pageable pageable);
 
     @RestResource(path = "byPhoneNum", rel = "phoneNum")
-    boolean existsEmployeeByPhoneNum(@Param("q") String phoneNum);
+    boolean existsEmployeeByPhoneNumAndIdNot(@Param("q") String aadhar, @Param("id") Long id);
 
     @RestResource(path = "byAadhar", rel = "aadhar")
-    boolean existsEmployeeByAadhar(@Param("q") String aadhar);
+    boolean existsEmployeeByAadharAndIdNot(@Param("q") String aadhar, @Param("id") Long id);
 
     @RestResource(path = "byEmail", rel = "email")
-    boolean existsEmployeeByEmail(@Param("q") String email);
+    boolean existsEmployeeByEmailAndIdNot(@Param("q") String aadhar, @Param("id") Long id);
 
     @RestResource(path = "byPan", rel = "pan")
-    boolean existsEmployeeByPan(@Param("q") String pan);
+    boolean existsEmployeeByPanAndIdNot(@Param("q") String aadhar, @Param("id") Long id);
 }
